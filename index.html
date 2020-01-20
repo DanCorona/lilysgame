@@ -1,5 +1,5 @@
 <!doctype html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=800, initial-scale=1">
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -117,7 +117,10 @@
   }
   babies();
   ///event mouse down deletes the circle
+
+
   canvas.addEventListener('click', function(e) {
+    e.preventDefault();
     let mX=( e.clientX- c.canvas.offsetLeft)  ;
     let mY= (e.clientY- c.canvas.offsetTop)  ;
 
