@@ -37,9 +37,16 @@
 
   canvas.width = canvas.scrollWidth;
   canvas.height = canvas.scrollHeight ;
-  cW =canvas.width;
-  cH = canvas.height;
+  var cW =canvas.width;
+  var cH = canvas.height;
   var c = canvas.getContext('2d'); //sets canvs to 2d
+  var colorArray = [
+    '#ffaa33',
+    '#99ffaaa',
+    '#00ff00',
+    '#4411aa',
+    '#ff1100',
+  ]
   function Circle(id,x,y,dx,dy,radius,clr) {
    this.x = x;
    this.y = y;
@@ -107,7 +114,7 @@
       let y = Math.random() *(canvas.height - radius*2)+ radius;
       let dx = Math.random() * -0.5 *5;
       let dy = Math.random() * -0.5 *5;
-      let clr = 'red';
+      let clr = colorArray[Math.floor(Math.random()* colorArray.length)];
     //var numText = '' ;
     var circle =new Circle(i,x,y,dx,dy,radius,clr);
     //  var circle = new Circle(200,200,3,4,40);
@@ -131,7 +138,7 @@
     if(circleArray[i].isHitBy(clickX,clickY)){
       console.log("resasre",i);
       let  target=circleArray[i];
-      target.clr='green';
+      target.clr=colorArray[Math.floor(Math.random()* colorArray.length)];
 
       target.radius += 10;
       let n=i;
