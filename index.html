@@ -119,7 +119,7 @@
   ///event mouse down deletes the circle
 
 
-  canvas.addEventListener('click', function(e) {
+  canvas.addEventListener('mousedown', function(e) {
     e.preventDefault();
     let mX=( e.clientX- c.canvas.offsetLeft)  ;
     let mY= (e.clientY- c.canvas.offsetTop)  ;
@@ -152,7 +152,10 @@
 
     setTimeout(function(){
 
-  newBubbles();
+      if (circleArray === undefined || circleArray.length == 0) {
+        babies();
+        console.log('BABIES!!!!!1');
+    }else {console.log('No babies :(');}
   }, 500);
 
     }
@@ -161,13 +164,7 @@
 
   });
 
-  function newBubbles(){
-    if (circleArray === undefined || circleArray.length == 0) {
-      babies();
-      console.log('BABIES!!!!!1');
-  }else {console.log('No babies :(');}
 
-  }
   //animates the circle
 
   function animate () {
