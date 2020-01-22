@@ -125,18 +125,9 @@
   babies();
   ///event mouse down deletes the circle
 
-  canvas.addEventListener('touchstart', function(e) {
-    e.preventDefault();
-    let mX=( e.clientX- c.canvas.offsetLeft)  ;
-    let mY= (e.clientY- c.canvas.offsetTop)  ;
 
-    let canvasBounds = canvas.getBoundingClientRect();
-    let clickX = e.pageX - canvasBounds.left;
-    let clickY = e.pageY - canvasBounds.top;
 
-    clickling(clickX,clickY);
-
-  });  canvas.addEventListener('touchmove', function(e) {
+    var clickling = (e)=>{
       e.preventDefault();
       let mX=( e.clientX- c.canvas.offsetLeft)  ;
       let mY= (e.clientY- c.canvas.offsetTop)  ;
@@ -144,34 +135,6 @@
       let canvasBounds = canvas.getBoundingClientRect();
       let clickX = e.pageX - canvasBounds.left;
       let clickY = e.pageY - canvasBounds.top;
-
-      clickling(clickX,clickY);
-
-    });  canvas.addEventListener('touchend', function(e) {
-        e.preventDefault();
-        let mX=( e.clientX- c.canvas.offsetLeft)  ;
-        let mY= (e.clientY- c.canvas.offsetTop)  ;
-
-        let canvasBounds = canvas.getBoundingClientRect();
-        let clickX = e.pageX - canvasBounds.left;
-        let clickY = e.pageY - canvasBounds.top;
-
-        clickling(clickX,clickY);
-
-      });
-  canvas.addEventListener('mousedown', function(e) {
-    e.preventDefault();
-    let mX=( e.clientX- c.canvas.offsetLeft)  ;
-    let mY= (e.clientY- c.canvas.offsetTop)  ;
-
-    let canvasBounds = canvas.getBoundingClientRect();
-    let clickX = e.pageX - canvasBounds.left;
-    let clickY = e.pageY - canvasBounds.top;
-
-    clickling(clickX,clickY);
-
-  });
-    function clickling(clickX,clickY){
       for (var i = 0; i < circleArray.length; i++) {
       if(circleArray[i].isHitBy(clickX,clickY)){
         console.log("resasre",i);
@@ -202,6 +165,10 @@
       }
     }
     };
+    canvas.addEventListener('mousedown', clickling);
+    canvas.addEventListener('touch', clickling);
+canvas.addEventListener('touchmove', clickling);
+//canvas.addEventListener('touchstart', clickling);
 
   //animates the circle
 
