@@ -22,7 +22,7 @@
 <div id='status'>
   1/1
 </div>
-  <canvas id="screen" width="500" height="500">
+  <canvas id="screen" width="500" height="500" tabindex='1'>
 
   </canvas>
   <script type="text/javascript">
@@ -35,8 +35,8 @@
 
   })
 
-  canvas.width = canvas.scrollWidth;
-  canvas.height = canvas.scrollHeight ;
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight ;
   var cW =canvas.width;
   var cH = canvas.height;
   var c = canvas.getContext('2d'); //sets canvs to 2d
