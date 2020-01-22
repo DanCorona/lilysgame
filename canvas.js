@@ -137,7 +137,7 @@ function babies ()
 }
 babies();
 ///event mouse down deletes the circle
-canvas.addEventListener('mousedown', function(e) {
+canvas.addEventListener('touchend', function(e) {
   let mX=( e.clientX- c.canvas.offsetLeft)  ;
   let mY= (e.clientY- c.canvas.offsetTop)  ;
 

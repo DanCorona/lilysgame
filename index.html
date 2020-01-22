@@ -125,7 +125,40 @@
   babies();
   ///event mouse down deletes the circle
 
+  canvas.addEventListener('touchstart', function(e) {
+    e.preventDefault();
+    let mX=( e.clientX- c.canvas.offsetLeft)  ;
+    let mY= (e.clientY- c.canvas.offsetTop)  ;
 
+    let canvasBounds = canvas.getBoundingClientRect();
+    let clickX = e.pageX - canvasBounds.left;
+    let clickY = e.pageY - canvasBounds.top;
+
+    clickling(clickX,clickY);
+
+  });  canvas.addEventListener('touchmove', function(e) {
+      e.preventDefault();
+      let mX=( e.clientX- c.canvas.offsetLeft)  ;
+      let mY= (e.clientY- c.canvas.offsetTop)  ;
+
+      let canvasBounds = canvas.getBoundingClientRect();
+      let clickX = e.pageX - canvasBounds.left;
+      let clickY = e.pageY - canvasBounds.top;
+
+      clickling(clickX,clickY);
+
+    });  canvas.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        let mX=( e.clientX- c.canvas.offsetLeft)  ;
+        let mY= (e.clientY- c.canvas.offsetTop)  ;
+
+        let canvasBounds = canvas.getBoundingClientRect();
+        let clickX = e.pageX - canvasBounds.left;
+        let clickY = e.pageY - canvasBounds.top;
+
+        clickling(clickX,clickY);
+
+      });
   canvas.addEventListener('mousedown', function(e) {
     e.preventDefault();
     let mX=( e.clientX- c.canvas.offsetLeft)  ;
@@ -134,43 +167,41 @@
     let canvasBounds = canvas.getBoundingClientRect();
     let clickX = e.pageX - canvasBounds.left;
     let clickY = e.pageY - canvasBounds.top;
-    for (var i = 0; i < circleArray.length; i++) {
-    if(circleArray[i].isHitBy(clickX,clickY)){
-      console.log("resasre",i);
-      let  target=circleArray[i];
-      target.clr=colorArray[Math.floor(Math.random()* colorArray.length)];
 
-      target.radius += 10;
-      let n=i;
-      console.log (`${n}  ${i}`)
-    setTimeout(function(){
-
-  circleArray.splice(n,1)
-  }, 100);
-
-  if(score<500){
-   score += 25;
-   document.getElementById('status').innerHTML = `Score: ${score}`
-      //target.radius=0;
-    }else {
-      score = 5;
-      document.getElementById('status').innerHTML = `Score: ${score}`
-    } ///target.pop();
-
-    setTimeout(function(){
-
-      if (circleArray === undefined || circleArray.length == 0) {
-        babies();
-        console.log('BABIES!!!!!1');
-    }else {console.log('No babies :(');}
-  }, 500);
-
-    }
-  }
-
+    clickling(clickX,clickY);
 
   });
+    function clickling(clickX,clickY){
+      for (var i = 0; i < circleArray.length; i++) {
+      if(circleArray[i].isHitBy(clickX,clickY)){
+        console.log("resasre",i);
+        let  target=circleArray[i];
+        target.clr=colorArray[Math.floor(Math.random()* colorArray.length)];
 
+        target.radius += 10;
+        let n=i;
+        console.log (`${n}  ${i}`)
+      setTimeout(function(){circleArray.splice(n,1)}, 100);
+
+    if(score<500){
+     score += 25;
+     document.getElementById('status').innerHTML = `Score: ${score}`
+        //target.radius=0;
+      }else {
+        score = 5;
+        document.getElementById('status').innerHTML = `Score: ${score}`
+      } ///target.pop();
+
+      setTimeout(function(){
+        if (circleArray === undefined || circleArray.length == 0) {
+          babies();
+          console.log('BABIES!!!!!1');
+      }else {console.log('No babies :(');}
+    }, 500);
+
+      }
+    }
+    };
 
   //animates the circle
 
