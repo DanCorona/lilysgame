@@ -1,5 +1,5 @@
 <!doctype html>
-  <meta name="viewport" content="width=device-width, initial-scale.50">
+  <meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, user-scalable=no">
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -39,11 +39,11 @@
   var cH = canvas.height;
   var c = canvas.getContext('2d'); //sets canvs to 2d
   var colorArray = [
-    'rgba(229, 255, 114, .5)',
-    'rgba(114, 255, 166, .3)',
-    'rgba(255, 128, 114, .5)',
-    'rgba(255, 114, 229, .2)',
-    'rgba(229, 255, 114, .5)',
+    'rgba(255, 255, 255, .5)',
+    'rgba(0, 255, 255, .5)',
+    'rgba(255, 0, 255, .5)',
+    'rgba(0, 0, 229, .5)',
+    'rgba(0, 255, 0, .5)',
   ]
   function Circle(x,y,dx,dy,radius,clr,ssty) {
    this.x = x;
@@ -127,7 +127,7 @@
       let dy = Math.random() * -0.5 *4;
       let clr = colorArray[Math.floor(Math.random()* colorArray.length)];
       let ssty= colorArray[Math.floor(Math.random()* colorArray.length)];
-    //var numText = '' ;
+    var numText = '?' ;
     var circle =new Circle(x,y,dx,dy,radius,clr,ssty);
     //  var circle = new Circle(200,200,3,4,40);
       circleArray.push( circle);
@@ -189,8 +189,9 @@ canvas.addEventListener('touchmove', clickling);
 
       requestAnimationFrame(animate);
       c.clearRect(0,0,innerWidth, innerHeight);
+      c.fillStyle = 'rgba(10,010,10,1)';
+      c.fillRect(0,0,innerWidth, innerHeight);
 
-    //  c.fillStyle = clrr;
 
 
       for (var i = 0; i < circleArray.length; i++) {
