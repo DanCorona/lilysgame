@@ -161,8 +161,9 @@
         let  target=circleArray[i];
         target.clr=colorArray[Math.floor(Math.random()* colorArray.length)];
 
-        sound.play()
+
         target.radius += 10;
+        sound.play()
         let n=i;
         console.log (`${n}  ${i}`)
       setTimeout(function(){circleArray.splice(n,1)}, 100);
