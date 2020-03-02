@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="css/styles.css?v=1.0">
 		<style>
 			canvas{			border: 1px solid green;}
+      .score{
+        border: solid 1px pink;
+      }
 		</style>
 
 </head>
@@ -19,7 +22,7 @@
 
 
 
-<div id='status'>
+<div class='score' id='status'>
 
 </div>
   <canvas id="screen" width="500" height="500" tabindex='1'>
@@ -146,11 +149,11 @@
       let mX=( e.clientX- c.canvas.offsetLeft)  ;
       let mY= (e.clientY- c.canvas.offsetTop)  ;
       sound.src = 'blop.mp3'
-      sound.play()
+
       let canvasBounds = canvas.getBoundingClientRect();
       let clickX = e.pageX- canvasBounds.left;
       let clickY = e.pageY- canvasBounds.top;
-      sound.src = 'blop.mp3'
+      ;
       for (var i = 0; i < circleArray.length; i++) {
 
       if(circleArray[i].isHitBy(clickX,clickY)){
@@ -191,6 +194,7 @@
     canvas.addEventListener('mousedown', clickling);
     canvas.addEventListener('touch', clickling);
 canvas.addEventListener('touchmove', clickling);
+//canvas.addEventListener('touchend', clickling);
 //canvas.addEventListener('touchstart', clickling);
 
   //animates the circle
