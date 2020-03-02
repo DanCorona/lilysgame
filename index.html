@@ -150,6 +150,7 @@
       let canvasBounds = canvas.getBoundingClientRect();
       let clickX = e.pageX- canvasBounds.left;
       let clickY = e.pageY- canvasBounds.top;
+      sound.src = 'blop.mp3'
       for (var i = 0; i < circleArray.length; i++) {
 
       if(circleArray[i].isHitBy(clickX,clickY)){
@@ -160,6 +161,7 @@
         let  target=circleArray[i];
         target.clr=colorArray[Math.floor(Math.random()* colorArray.length)];
 
+        sound.play()
         target.radius += 10;
         let n=i;
         console.log (`${n}  ${i}`)
